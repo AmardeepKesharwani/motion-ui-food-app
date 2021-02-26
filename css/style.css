@@ -1,0 +1,465 @@
+@import url("https://fonts.googleapis.com/css?family=Mukta");
+:root {
+  --primary: #ff5454;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Mukta", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  font-size: 1rem;
+  background: #ebebeb;
+}
+body.block {
+  height: 100vh;
+  overflow: hidden;
+}
+img {
+  width: 100%;
+  height: 100%;
+}
+button {
+  display: inline-block;
+  outline: none;
+  border: none;
+  transition: 0.3s ease;
+  padding: 8px 25px;
+  height: 48px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  background: var(--primary);
+}
+.sec1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  min-height: 100vh;
+  bottom: 0;
+  background-color: #4f4fff;
+  background-image: url("https://s3.ap-south-1.amazonaws.com/hsdreams1/pins/2019/11/big/c742df9dfac958db90498c4925b401a7.gif");
+  background-size: cover;
+  background-position: center;
+  z-index: 6;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  transition: 0.5s ease;
+  overflow: auto;
+}
+@media (min-width:767px){
+    .sec1 img {
+        width: 50%;
+    }
+}
+.sec1 h1 {
+  color: #ff1616;
+  font-size: 1.8rem;
+  margin-top: 10px;
+}
+.sec1 h2 {
+  font-size: 1.7rem;
+  color: #ff1616;
+  margin-bottom: 10px;
+}
+
+.sec1 button {
+  border-radius: 4px;
+  border: 2px solid #fff;
+  background: none;
+  font-weight: bold;
+}
+.sec1 del {
+  font-size: 18px;
+}
+.sec1 p {
+  margin: 10px 0 20px;
+  background: rgba(74, 112, 226, 0.2);
+  backdrop-filter: blur(4px);
+  border-radius: 5px;
+  padding: 15px;
+}
+.nav {
+  width: 100%;
+  height: 50px;
+  background: #ff4a4a;
+  color: #fff;
+  padding: 5px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.back__arrow {
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  border-bottom: 2px solid #fff;
+  border-left: 2px solid #fff;
+  transform: rotate(45deg);
+  cursor: pointer;
+}
+.nav__card--icon {
+  display: inline-block;
+  transform: translateY(3px);
+  cursor: pointer;
+}
+.wrap {
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.card {
+  position: absolute;
+  height: 180px;
+  width: 160px;
+  color: #333;
+  transition: all 0.3s ease;
+  text-align: center;
+  overflow: hidden;
+  background: #fff;
+}
+
+.div1 {
+  left: 15px;
+}
+.div2 {
+  left: 185px;
+}
+.div3 {
+  left: 15px;
+  top: 190px;
+}
+.div4 {
+  left: 185px;
+  top: 190px;
+}
+.div5 {
+  top: 380px;
+  left: 15px;
+}
+.div6 {
+  top: 380px;
+  left: 185px;
+}
+.div7 {
+  top: 570px;
+  left: 15px;
+  margin-bottom: 20px;
+}
+.div8 {
+  top: 570px;
+  left: 185px;
+  margin-bottom: 20px;
+}
+
+.card .close {
+  position: absolute;
+  top: 14px;
+  left: 10px;
+  color: #222;
+  font-size: 2.6rem;
+  padding: 5px;
+  cursor: pointer;
+  display: inline-block;
+  pointer-events: none;
+  visibility: hidden;
+  z-index: 5;
+  opacity: 0;
+  padding: 0px 5px;
+  line-height: 0.5;
+}
+.card .order__tag {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--primary);
+  color: #fff;
+  padding: 2px 8px;
+  font-size: 80%;
+  z-index: 5;
+}
+.card__title {
+  font-size: 16px;
+  position: absolute;
+  top: 155px;
+  left: 6px;
+  z-index: 3;
+  text-align: left;
+  color: var(--primary);
+}
+.card.active {
+  width: 100% !important;
+  z-index: 7;
+  height: 100vh;
+  overflow: scroll;
+  transition: transform 0.8s ease, width 0.8s ease, height 0.5s ease-out 0.3s;
+}
+.card.active .close {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 1s ease 1s;
+}
+.card__data {
+  position: relative;
+  padding: 1rem;
+}
+.card__btn--group {
+  background: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 10px 20px;
+  width: 100%;
+  z-index: 3;
+  transform: translateY(40px);
+}
+.card.active .card__btn {
+  animation: fadeIn 0.5s ease 1.9s both;
+}
+.card__btn {
+  width: 100%;
+}
+.card__text {
+  margin-bottom: 15px;
+  margin-top: 10px;
+  max-height: 100px;
+  overflow: hidden;
+  color: #777;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.5s ease-out;
+}
+.card.active .card__text {
+  transition: all 0.5s ease-out 1.3s;
+  opacity: 1;
+  transform: translateY(0px);
+}
+.card.active img {
+  animation: fadeIn 0.5s ease 0.5s both;
+  margin-top: -30px;
+  /*filter: drop-shadow(10px 2px 10px #ccc);*/
+}
+.div2 img,
+.div7 img,
+.div8 img {
+  margin-top: 20px;
+}
+.div2.active img,
+.div7.active img,
+.div8.active img {
+  margin-top: 0px;
+}
+.card.active .card__title {
+  position: static;
+  text-align: center;
+  font-size: 1.7rem;
+  animation: fadeIn 0.5s ease 1s both;
+}
+.card__content b {
+  font-size: 14px;
+  line-height: 1.2;
+  font-family: sans-serif;
+}
+.card__price {
+  font-size: 3rem;
+  transform: translateY(-7px);
+}
+.card__price small {
+  font-size: 1.8rem;
+  color: #444;
+}
+.card.active .card__price--wrap {
+  animation: fadeIn 0.5s ease 1.5s both;
+}
+@media (min-width:767px){
+    .card.active .card__data img{
+        width: auto;
+    }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.modal {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 8;
+  box-shadow: 1px 0 5px rgba(0, 0, 0, 0.3);
+  border-radius: 25px 25px 0 0;
+  transition: all 0.3s ease-in;
+  transform: translateY(100%);
+}
+.modal.active {
+  transform: translateY(0%);
+}
+.modal__container {
+  padding: 30px 20px;
+  position: relative;
+  color: #333;
+}
+.modal__container h1 {
+  font-size: 1.8rem;
+}
+.modal__card {
+  display: flex;
+  margin: 40px 0;
+  padding: 10px;
+  background: #f7f7f7;
+}
+.modal__img {
+  width: 110px;
+  height: 110px;
+  overflow: hidden;
+}
+
+.modal__data {
+  margin-left: 20px;
+}
+.input {
+  display: inline-flex;
+  border: 1px solid var(--primary);
+  margin-top: 5px;
+}
+.input button {
+  padding: 0;
+  width: 40px;
+  height: 35px;
+  font-size: 1.5rem;
+  margin: 0;
+  background: #fff;
+  color: var(--primary);
+  cursor: pointer;
+}
+.input #value {
+  width: 40px;
+  text-align: center;
+  background: #fff;
+  outline: none;
+  border: none;
+  font-size: 16px;
+}
+.modal #title {
+  color: var(--primary);
+  line-height: 1.3;
+}
+.modal__action--btn {
+  display: flex;
+}
+.modal__action--btn button {
+  flex: 1;
+  margin: 0 3px;
+  padding: 5px;
+  border: 1px solid var(--primary);
+}
+.modal__action--btn button:first-child {
+  background: #fff;
+  color: var(--primary);
+}
+.modal__close {
+  position: absolute;
+  right: 26px;
+  top: 22px;
+  font-size: 2.3rem;
+  padding: 5px;
+  cursor: pointer;
+  line-height: 0.5;
+}
+.modal__success {
+  padding: 60px 20px;
+  text-align: center;
+  color: #666;
+  background-image: url("https://i.pinimg.com/originals/7f/3a/68/7f3a68fe9ae08dfcfb26a0863a20d375.gif");
+  background-size: cover;
+  display: none;
+}
+.modal__success.show {
+  display: block;
+}
+.modal__success.show h1 {
+  color: var(--primary);
+  animation: fadeIn 0.5s ease-in 0.2s both;
+}
+.modal__success.show p {
+  animation: fadeIn 0.5s ease-in 0.4s both;
+}
+.modal__success.show button {
+  animation: fadeIn 0.5s ease-in 0.6s both;
+}
+.modal__success button {
+  height: 40px;
+  margin-top: 20px;
+}
+#order_list {
+  text-align: center;
+  padding: 15px 0;
+  color: #555;
+  max-height: 380px;
+  overflow: scroll;
+}
+#order_list .modal__data {
+  text-align: left;
+}
+#order_list .modal__img {
+  height: 90px;
+  width: 90px;
+  min-width: 90px;
+  overflow: hidden;
+}
+#order_list .modal__card {
+  margin: 15px 0;
+}
+#order_list .modal__data h4 {
+  height: 16px;
+  overflow: hidden;
+  line-height: 1em;
+  color: var(--primary);
+}
+.insta__link {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10px;
+  display: inline-block;
+  background: #ff1616;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 4px;
+  padding: 10px 30px;
+  font-weight: bold;
+  font-size: 18px;
+}
+.insta__link svg {
+  transform: translateY(4px) scale(1.2);
+  margin-right: 5px;
+}
+@media (min-width:767px){
+
+.insta__link {
+    left: 10px;
+    transform: translateX(0);
+ }
+}
